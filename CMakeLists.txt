@@ -11,11 +11,13 @@ endif(NOT CMAKE_BUILD_TYPE)
 
 
 add_library(OouraFFT STATIC
-  fft4g.h 
+  fft4g.c #fft4g.h 
 )
+
+target_include_directories(OouraFFT PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
 
 set_property(TARGET OouraFFT APPEND PROPERTY INTERFACE_INCLUDE_DIRECTORIES
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>
 )
 
-target_link_libraries(OouraFFT m)
+#target_link_libraries(OouraFFT m)
